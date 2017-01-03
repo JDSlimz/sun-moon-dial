@@ -1,0 +1,16 @@
+html, body, #weather{
+    width: 99%;
+    height: 95vh;
+}
+
+#weather {
+    overflow: hidden;
+    position: relative;
+}
+
+#day, #night {
+    height: 200%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
