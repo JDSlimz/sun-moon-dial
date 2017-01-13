@@ -8,6 +8,14 @@ html, body, #weather{
     position: relative;
 }
 
+#horizon{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: 15;
+}
+
 #day, #night {
     height: 200%;
     width: 100%;
