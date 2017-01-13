@@ -23,6 +23,15 @@ function showPosition(position) {
     
     var moonRise = moonTimes['rise'];
     var moonset = moonTimes['set'];
+	
+	console.log(now);
+	
+	if( now > sunSet && now < sunRise ){
+		console.log("Night.");
+		jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
+	} else if( now < sunSet && now > SunRise ){
+		console.log("Day.");
+	}
     
     setInterval(function(){ sunRotate(sunRise, sunSet); }, 100);
     setInterval(function(){ moonRotate(moonRise, moonset); }, 100);
