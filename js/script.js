@@ -24,19 +24,31 @@ function showPosition(position) {
     var moonRise = moonTimes['rise'];
     var moonset = moonTimes['set'];
 	
-	console.log(now);
+    
+    setInterval(function(){ 
+		sunRotate(sunRise, sunSet);
+		moonRotate(moonRise, moonset);
+		
+		var mmt = moment();
+		var mmtStart = mmt.clone().startOf('day');
+		var mmtEnd = mmt.clone().endOf('day');
+		var startOfDay = new Date(mmtStart).getTime();
+		var endOfDay = new Date(mmtEnd).getTime();
+		
+		if( now.getTime() > startOfDay && now.getTime() < sunRise.getTime() ){ //Now is between Midnight and Sunrise.
+			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
+		} else if( now.getTime < endOfDay && now.getTime() > sunSet.getTime() ){ //Now is between Sunset and 11:59pm
+			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
+		} else {
+			jQuery('#weather').css("background", "url(images/daybg.png) no-repeat");
+		}
+		
+		jQuery('#tw_time').html(moment().format('h:mm:ss A'));
+		
+		
+	}, 100);
 	
-	if( now > sunSet && now < sunRise ){
-		console.log("Night.");
-		jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
-	} else if( now < sunSet && now > SunRise ){
-		console.log("Day.");
-	}
-    
-    setInterval(function(){ sunRotate(sunRise, sunSet); }, 100);
-    setInterval(function(){ moonRotate(moonRise, moonset); }, 100);
-    
-    loadWeather(position.coords.latitude+','+position.coords.longitude);
+    loadWeather(position.coords.latitude, position.coords.longitude); 
 }
 
 function sunRotate(rise, set) {
@@ -54,25 +66,26 @@ function moonRotate(rise, set){
     var moonlight = (set  - rise) / 60000; // Minutes of Moonlight
     var moonSpeed = Math.abs((moonlight * 2) / 360);
     var deg = (currentMinute / 60000) / moonSpeed;
-    console.log(moonSpeed);
     $("#night").rotate(deg);
 }
 
-function loadWeather(location, woeid) {
-  $.simpleWeather({
-    location: location,
-    woeid: woeid,
-    unit: 'f',
-    success: function(weather) {
-      html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-      html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-      html += '<li class="currently">'+weather.currently+'</li>';
-      html += '<li>'+weather.alt.temp+'&deg;C</li></ul>';  
-      
-      $("#weather").html(html);
-    },
-    error: function(error) {
-      $("#weather").html('<p>'+error+'</p>');
-    }
-  });
+function loadWeather(lat, lng) {
+	//console.log('https://api.wunderground.com/api/6a6a5af963e13dd8/conditions/q/'+lat+','+lng+'.json'); 
+	$.ajax({
+	  dataType: "json",
+	  url: 'https://api.wunderground.com/api/6a6a5af963e13dd8/conditions/q/'+lat+','+lng+'.json',
+	  success: function(data){
+		  console.log(data['current_observation']);
+		  
+		  var temp = data['current_observation']['temp_f'];
+		  var weather = data['current_observation']['weather'];
+		  var locName = data['current_observation']['observation_location']['full'];
+		  
+		  var html = "<h1>" + temp + "&deg;F</h1>";
+		  html += "<h3>" + weather + "</h3>";
+		  html += "<h6>" + locName + "</h6>";
+		  
+		  $('#tw_weather').html(html);
+	  }
+	});
 }

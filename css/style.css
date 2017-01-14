@@ -25,3 +25,29 @@ html, body, #weather{
     position: absolute;
     top: 0;
 }
+
+#time_weather{
+	position: absolute;
+	bottom: 5%;
+	width: 100%;
+	color: white;
+	text-shadow: 0px 40px 30px rgba(0, 0, 0, 0.5);
+	display: flex;
+}
+
+#tw_time{
+	flex: 1.5;
+	font-size: 5vw;
+	text-align: right;
+	margin-right: 5px;
+}
+
+#tw_weather{
+	flex: 1;
+	text-align: left;
+	margin-left: 5px;
+}
+
+#tw_weather h1, #tw_weather h3, #tw_weather h6{
+	margin: 0px;
+}
