@@ -66,7 +66,7 @@ function moonRotate(rise, set){
 function loadWeather(lat, lng) {
 	$.ajax({
 	  dataType: "json",
-	  url: 'https://api.openweathermap.org/data/2.5/weather?key=532bd129f349906ff2c75be74854684c&lat='+lat+'&lon='+lng,
+	  url: 'https://api.openweathermap.org/data/2.5/weather?APPID=532bd129f349906ff2c75be74854684c&lat='+lat+'&lon='+lng,
 	  success: function(data){
 		  console.log(data);
 	  }
