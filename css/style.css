@@ -31,6 +31,7 @@ html, body, #weather{
 	bottom: 5%;
 	left: 0px;
 	right: 0px;
+	margin: 0 auto;
 	width: 80%;
 	color: white;
 	text-align: center;
