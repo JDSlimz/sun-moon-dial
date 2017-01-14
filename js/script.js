@@ -31,7 +31,7 @@ function showPosition(position) {
 		
 		var mmt = moment();
 		var mmtMidnight = mmt.clone().startOf('day');
-		console.log(mmtMidnight.getTime());
+		console.log(new Date(mmtMidnight).getTime());
 		
 		if( now.getTime() > sunSet.getTime() && now.getTime() < sunRise.getTime() ){
 			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat cover");
