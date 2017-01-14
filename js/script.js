@@ -41,6 +41,8 @@ function showPosition(position) {
 		}
 	}, 100);
     
+	console.log(position);
+	
     loadWeather(position.coords.latitude+','+position.coords.longitude); 
 }
 
@@ -63,10 +65,10 @@ function moonRotate(rise, set){
     $("#night").rotate(deg);
 }
 
-function loadWeather(location, woeid) {
+function loadWeather(loc) {
   jQuery.simpleWeather({
-    location: location,
-    woeid: woeid,
+    location: loc,
+    woeid: '',
     unit: 'f',
     success: function(weather) {
       html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
