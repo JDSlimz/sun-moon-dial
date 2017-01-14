@@ -64,7 +64,7 @@ function moonRotate(rise, set){
 }
 
 function loadWeather(location, woeid) {
-  $.simpleWeather({
+  jQuery.simpleWeather({
     location: location,
     woeid: woeid,
     unit: 'f',
