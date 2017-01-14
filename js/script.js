@@ -35,16 +35,13 @@ function showPosition(position) {
 		sunRotate(sunRise, sunSet);
 		moonRotate(moonRise, moonset);
 		if( now.getTime() > sunSet.getTime() ){
-			console.log("Night.");
 			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
 		} else if( now.getTime() < sunSet.getTime() ){
-			console.log("Day.");
-		} else {
-			console.log("WTF?");
+			jQuery('#weather').css("background", "url(images/daybg.png) no-repeat");
 		}
 	}, 100);
     
-    //loadWeather(position.coords.latitude+','+position.coords.longitude); 
+    loadWeather(position.coords.latitude+','+position.coords.longitude); 
 }
 
 function sunRotate(rise, set) {
