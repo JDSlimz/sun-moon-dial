@@ -25,6 +25,7 @@ function showPosition(position) {
     var moonset = moonTimes['set'];
 	
 	console.log(now);
+	console.log(sunRise);
 	
 	if( now > sunSet && now < sunRise ){
 		console.log("Night.");
