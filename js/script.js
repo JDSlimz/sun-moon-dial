@@ -40,8 +40,6 @@ function showPosition(position) {
 			jQuery('#weather').css("background", "url(images/daybg.png) no-repeat");
 		}
 	}, 100);
-    
-	console.log(position.coords);
 	
     loadWeather(position.coords.latitude+','+position.coords.longitude); 
 }
@@ -66,7 +64,7 @@ function moonRotate(rise, set){
 }
 
 function loadWeather(loc) {
-  jQuery.simpleWeather({
+  $.simpleWeather({
     location: loc,
     woeid: '',
     unit: 'f',
