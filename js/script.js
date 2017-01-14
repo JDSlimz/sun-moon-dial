@@ -59,12 +59,11 @@ function moonRotate(rise, set){
     var moonlight = (set  - rise) / 60000; // Minutes of Moonlight
     var moonSpeed = Math.abs((moonlight * 2) / 360);
     var deg = (currentMinute / 60000) / moonSpeed;
-    console.log(moonSpeed);
     $("#night").rotate(deg);
 }
 
 function loadWeather(lat, lng) {
-	console.log('https://api.wunderground.com/api/6a6a5af963e13dd8/conditions/q/'+lat+','+lng+'.json');
+	//console.log('https://api.wunderground.com/api/6a6a5af963e13dd8/conditions/q/'+lat+','+lng+'.json'); 
 	$.ajax({
 	  dataType: "json",
 	  url: 'https://api.wunderground.com/api/6a6a5af963e13dd8/conditions/q/'+lat+','+lng+'.json',
