@@ -65,6 +65,7 @@ function moonRotate(rise, set){
 
 function loadWeather(lat, lng) {
 	jQuery('#tw_weather').openWeather({
+		key: '532bd129f349906ff2c75be74854684c',
 		lat: lat,
 		lng: lng
 	});
