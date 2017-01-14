@@ -41,7 +41,7 @@ function showPosition(position) {
 		}
 	}, 100);
     
-	console.log(position);
+	console.log(position.coords);
 	
     loadWeather(position.coords.latitude+','+position.coords.longitude); 
 }
