@@ -29,10 +29,10 @@ function showPosition(position) {
 		sunRotate(sunRise, sunSet);
 		moonRotate(moonRise, moonset);
 		
-		if( now.getTime() > sunSet.getTime() ){
-			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
+		if( now.getTime() > sunSet.getTime() && now.getTime() < sunRise.getTime() ){
+			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat cover");
 		} else if( now.getTime() < sunSet.getTime() ){
-			jQuery('#weather').css("background", "url(images/daybg.png) no-repeat");
+			jQuery('#weather').css("background", "url(images/daybg.png) no-repeat cover");
 		}
 		
 		var nowTime = new Date();
