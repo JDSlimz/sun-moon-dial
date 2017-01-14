@@ -29,6 +29,7 @@ function showPosition(position) {
 		sunRotate(sunRise, sunSet);
 		moonRotate(moonRise, moonset);
 		
+		var mmt = moment();
 		var mmtMidnight = mmt.clone().startOf('day');
 		console.log(mmtMidnight);
 		
