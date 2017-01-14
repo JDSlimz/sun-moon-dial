@@ -41,6 +41,7 @@ function showPosition(position) {
 			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
 		} else {
 			jQuery('#weather').css("background", "url(images/daybg.png) no-repeat");
+			jQuery('#weather').css("background-size", "cover");
 		}
 		
 		jQuery('#tw_time').html(moment().format('h:mm:ss A'));
