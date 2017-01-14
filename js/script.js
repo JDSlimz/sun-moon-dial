@@ -66,7 +66,7 @@ function moonRotate(rise, set){
 function loadWeather(lat, lng) {
 	$.ajax({
 	  dataType: "json",
-	  url: 'http://api.wunderground.com/api/6a6a5af963e13dd8/geolookup/q/'+lat+','+lng+'.json',
+	  url: 'https://api.wunderground.com/api/6a6a5af963e13dd8/geolookup/q/'+lat+','+lng+'.json',
 	  success: function(data){
 		  console.log(data);
 	  }
