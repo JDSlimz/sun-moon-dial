@@ -75,7 +75,7 @@ function loadWeather(lat, lng) {
 	  dataType: "json",
 	  url: 'https://api.wunderground.com/api/6a6a5af963e13dd8/conditions/q/'+lat+','+lng+'.json',
 	  success: function(data){
-		  console.log(data);
+		  console.log(data['current_observation']);
 	  }
 	});
 }
