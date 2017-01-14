@@ -32,4 +32,6 @@ html, body, #weather{
 	left: 0px;
 	right: 0px;
 	width: 80%;
+	color: white;
+	text-align: center;
 }
