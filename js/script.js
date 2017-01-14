@@ -72,12 +72,11 @@ function loadWeather(loc) {
       html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
       html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
       html += '<li class="currently">'+weather.currently+'</li>';
-      html += '<li>'+weather.alt.temp+'&deg;C</li></ul>';  
       
-      $("#time_weather").html(html);
+      $("#tw_weather").html(html);
     },
     error: function(error) {
-      $("#time_weather").html('<p>'+error+'</p>');
+      $("#tw_weather").html('<p>'+error+'</p>');
     }
   });
 }

@@ -29,10 +29,17 @@ html, body, #weather{
 #time_weather{
 	position: absolute;
 	bottom: 5%;
-	left: 0px;
-	right: 0px;
 	margin: 0 auto;
 	width: 80%;
 	color: white;
-	text-align: center;
+	display: flex;
+}
+
+#tw_time{
+	
+}
+
+#tw_weather{
+	flex: 1;
+	text-align: right;
 }
