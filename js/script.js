@@ -29,17 +29,20 @@ function showPosition(position) {
 	console.log(sunRise.getTime());
 	console.log(sunSet.getTime());
 	
-	if( now.getTime() > sunSet.getTime() ){
-		console.log("Night.");
-		jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
-	} else if( now.getTime() < sunSet.getTime() ){
-		console.log("Day.");
-	} else {
-		console.log("WTF?");
-	}
+	
     
-    setInterval(function(){ sunRotate(sunRise, sunSet); }, 100);
-    setInterval(function(){ moonRotate(moonRise, moonset); }, 100);
+    setInterval(function(){ 
+		sunRotate(sunRise, sunSet);
+		moonRotate(moonRise, moonset);
+		if( now.getTime() > sunSet.getTime() ){
+			console.log("Night.");
+			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
+		} else if( now.getTime() < sunSet.getTime() ){
+			console.log("Day.");
+		} else {
+			console.log("WTF?");
+		}
+	}, 100);
     
     //loadWeather(position.coords.latitude+','+position.coords.longitude); 
 }
