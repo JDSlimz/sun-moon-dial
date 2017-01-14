@@ -35,7 +35,7 @@ html, body, #weather{
 }
 
 #tw_time{
-	flex: 1;
+	flex: 1.5;
 	font-size: 5vw;
 	text-align: right;
 	margin-right: 5px;
