@@ -37,9 +37,11 @@ function showPosition(position) {
 		
 		var nowTime = new Date();
 		jQuery('#tw_time').html(moment().format('h:mm:ss A'));
+		
+		
 	}, 100);
 	
-    loadWeather(position.coords.latitude+','+position.coords.longitude); 
+    loadWeather(position.coords.latitude, position.coords.longitude); 
 }
 
 function sunRotate(rise, set) {
@@ -61,11 +63,9 @@ function moonRotate(rise, set){
     $("#night").rotate(deg);
 }
 
-function loadWeather(loc) {
-	$('#weather').metCast({
-		key: '179417e0aef6458389924747171401', // the api key
-		location: loc
+function loadWeather(lat, lng) {
+	jQuery('#tw_weather').openWeather({
+		lat: lat,
+		lng: lng
 	});
-
-  
 }
