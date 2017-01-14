@@ -36,11 +36,11 @@ function showPosition(position) {
 		var endOfDay = new Date(mmtEnd).getTime();
 		
 		if( now.getTime() > startOfDay && now.getTime() < sunRise.getTime() ){ //Now is between Midnight and Sunrise.
-			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat cover");
+			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
 		} else if( now.getTime < endOfDay && now.getTime() > sunSet.getTime() ){ //Now is between Sunset and 11:59pm
-			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat cover");
+			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
 		} else {
-			jQuery('#weather').css("background", "url(images/daybg.png) no-repeat cover");
+			jQuery('#weather').css("background", "url(images/daybg.png) no-repeat");
 		}
 		
 		jQuery('#tw_time').html(moment().format('h:mm:ss A'));
