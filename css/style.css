@@ -46,6 +46,6 @@ html, body, #weather{
 	text-align: left;
 }
 
-#tw_weather h1, #tw_weather h3 #tw_weather h6{
+#tw_weather h1, #tw_weather h3, #tw_weather h6{
 	margin: 0px;
 }

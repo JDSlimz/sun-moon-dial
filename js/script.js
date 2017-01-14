@@ -81,7 +81,7 @@ function loadWeather(lat, lng) {
 		  var weather = data['current_observation']['weather'];
 		  var locName = data['current_observation']['observation_location']['full'];
 		  
-		  var html = "<h1>" + temp + "&deg;F</h1><br>";
+		  var html = "<h1>" + temp + "&deg;F</h1>";
 		  html += "<h3>" + weather + "</h3>";
 		  html += "<h6>" + locName + "</h6>";
 		  
