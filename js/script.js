@@ -76,6 +76,16 @@ function loadWeather(lat, lng) {
 	  url: 'https://api.wunderground.com/api/6a6a5af963e13dd8/conditions/q/'+lat+','+lng+'.json',
 	  success: function(data){
 		  console.log(data['current_observation']);
+		  
+		  var temp = data['current_observation']['temp_f'];
+		  var weather = data['current_observation']['weather'];
+		  var locName = data['current_observation']['observation_location']['full'];
+		  
+		  var html = "<h1>" + temp + "&deg;F</h1><br>";
+		  html += "<h3>" + weather + "</h3>";
+		  html += "<h6>" + locName + "</h6>";
+		  
+		  $('#tw_weather').html(html);
 	  }
 	});
 }
