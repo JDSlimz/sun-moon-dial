@@ -27,10 +27,10 @@ function showPosition(position) {
 	console.log(now);
 	console.log(sunRise);
 	
-	if( now > sunSet && now < sunRise ){
+	if( now.getTime() > sunSet.getTime() && now.getTime() < sunRise.getTime() ){
 		console.log("Night.");
 		jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
-	} else if( now < sunSet && now > SunRise ){
+	} else if( now.getTime() < sunSet.getTime() && now.getTime() > SunRise.getTime() ){
 		console.log("Day.");
 	} else {
 		console.log("WTF?");
