@@ -45,7 +45,7 @@ html, body, #weather{
 #tw_weather{
 	flex: 1;
 	text-align: left;
-	margin-right: 5px;
+	margin-left: 5px;
 }
 
 #tw_weather h1, #tw_weather h3, #tw_weather h6{
