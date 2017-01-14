@@ -36,7 +36,7 @@ function showPosition(position) {
     setInterval(function(){ sunRotate(sunRise, sunSet); }, 100);
     setInterval(function(){ moonRotate(moonRise, moonset); }, 100);
     
-    //loadWeather(position.coords.latitude+','+position.coords.longitude);
+    //loadWeather(position.coords.latitude+','+position.coords.longitude); 
 }
 
 function sunRotate(rise, set) {
