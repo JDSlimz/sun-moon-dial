@@ -67,7 +67,6 @@ function loadWeather(lat, lng) {
 	$.ajax({
 	  dataType: "json",
 	  url: 'api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lng,
-	  data: data,
 	  success: function(data){
 		  console.log(data);
 	  }
