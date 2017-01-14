@@ -30,16 +30,19 @@ function showPosition(position) {
 		moonRotate(moonRise, moonset);
 		
 		var mmt = moment();
-		var mmtMidnight = mmt.clone().startOf('day');
-		console.log(new Date(mmtMidnight).getTime());
+		var mmtStart = mmt.clone().startOf('day');
+		var mmtEnd = mmt.clone().endOf('day');
+		var startOfDay = new Date(mmtStart).getTime();
+		var endOfDay = new Date(mmtEnd).getTime();
 		
-		if( now.getTime() > sunSet.getTime() && now.getTime() < sunRise.getTime() ){
+		if( now.getTime() > startOfDay && now.getTime() < sunRise.getTime() ){ //Now is between Midnight and Sunrise.
 			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat cover");
-		} else if( now.getTime() < sunSet.getTime() ){
+		} else if( now.getTime < endOfDay && now.getTime() > sunSet.getTime() ){ //Now is between Sunset and 11:59pm
+			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat cover");
+		} else {
 			jQuery('#weather').css("background", "url(images/daybg.png) no-repeat cover");
 		}
 		
-		var nowTime = new Date();
 		jQuery('#tw_time').html(moment().format('h:mm:ss A'));
 		
 		
