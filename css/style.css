@@ -36,12 +36,14 @@ html, body, #weather{
 }
 
 #tw_time{
-	
+	flex: 2;
+	font-size: 5vw;
+	text-align: right;
 }
 
 #tw_weather{
 	flex: 1;
-	text-align: right;
+	text-align: left;
 }
 
 #tw_weather ul{
