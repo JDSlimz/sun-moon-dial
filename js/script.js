@@ -31,6 +31,8 @@ function showPosition(position) {
 		jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
 	} else if( now < sunSet && now > SunRise ){
 		console.log("Day.");
+	} else {
+		console.log("WTF?");
 	}
     
     setInterval(function(){ sunRotate(sunRise, sunSet); }, 100);
