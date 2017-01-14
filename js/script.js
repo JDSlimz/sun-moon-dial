@@ -62,19 +62,10 @@ function moonRotate(rise, set){
 }
 
 function loadWeather(loc) {
-  $.simpleWeather({
-    location: loc,
-    woeid: '',
-    unit: 'f',
-    success: function(weather) {
-      html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-      html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-      html += '<li class="currently">'+weather.currently+'</li>';
-      
-      $("#tw_weather").html(html);
-    },
-    error: function(error) {
-      $("#tw_weather").html('<p>'+error+'</p>');
-    }
-  });
+	$('#weather').metCast({
+		key: '179417e0aef6458389924747171401', // the api key
+		location: loc
+	});
+
+  
 }
