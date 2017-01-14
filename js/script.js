@@ -74,10 +74,10 @@ function loadWeather(loc) {
       html += '<li class="currently">'+weather.currently+'</li>';
       html += '<li>'+weather.alt.temp+'&deg;C</li></ul>';  
       
-      $("#weather").html(html);
+      $("#time_weather").html(html);
     },
     error: function(error) {
-      $("#weather").html('<p>'+error+'</p>');
+      $("#time_weather").html('<p>'+error+'</p>');
     }
   });
 }
