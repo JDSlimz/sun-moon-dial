@@ -29,6 +29,9 @@ function showPosition(position) {
 		sunRotate(sunRise, sunSet);
 		moonRotate(moonRise, moonset);
 		
+		var mmtMidnight = mmt.clone().startOf('day');
+		console.log(mmtMidnight);
+		
 		if( now.getTime() > sunSet.getTime() && now.getTime() < sunRise.getTime() ){
 			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat cover");
 		} else if( now.getTime() < sunSet.getTime() ){
