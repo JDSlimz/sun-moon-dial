@@ -36,7 +36,7 @@ function showPosition(position) {
 		}
 		
 		var nowTime = new Date();
-		jQuery('#tw_time').html(nowTime.getHours() + ":" + nowTime.getMinutes() + ":" + nowTime.getSeconds());
+		jQuery('#tw_time').html(moment().format('h:mm:ss a'););
 	}, 100);
 	
     loadWeather(position.coords.latitude+','+position.coords.longitude); 
