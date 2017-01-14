@@ -24,21 +24,19 @@ function showPosition(position) {
     var moonRise = moonTimes['rise'];
     var moonset = moonTimes['set'];
 	
-	
-	console.log(now.getTime());
-	console.log(sunRise.getTime());
-	console.log(sunSet.getTime());
-	
-	
     
     setInterval(function(){ 
 		sunRotate(sunRise, sunSet);
 		moonRotate(moonRise, moonset);
+		
 		if( now.getTime() > sunSet.getTime() ){
 			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
 		} else if( now.getTime() < sunSet.getTime() ){
 			jQuery('#weather').css("background", "url(images/daybg.png) no-repeat");
 		}
+		
+		var nowTime = new Date();
+		jQuery('#tw_time').html(nowTime.getHours() + ":" + nowTime.getMinutes() + ":" + nowTime.getSeconds());
 	}, 100);
 	
     loadWeather(position.coords.latitude+','+position.coords.longitude); 

@@ -43,3 +43,7 @@ html, body, #weather{
 	flex: 1;
 	text-align: right;
 }
+
+#tw_weather ul{
+	list-style: none;
+}
