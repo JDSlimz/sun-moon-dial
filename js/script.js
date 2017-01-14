@@ -41,7 +41,7 @@ function showPosition(position) {
 		
 	}, 100);
 	
-    loadWeather(position.coords.latitude+','+position.coords.longitude); 
+    loadWeather(position.coords.latitude, position.coords.longitude); 
 }
 
 function sunRotate(rise, set) {
@@ -63,21 +63,13 @@ function moonRotate(rise, set){
     $("#night").rotate(deg);
 }
 
-function loadWeather(latlng) {
-	 $.simpleWeather({
-		location: latlng,
-		woeid: '',
-		unit: 'f',
-		success: function(weather) {
-		  html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-		  html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-		  html += '<li class="currently">'+weather.currently+'</li>';
-		  html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
-	  
-		  $("#tw_weather").html(html);
-		},
-		error: function(error) {
-		  $("#tw_weather").html('<p>'+error+'</p>');
-		}
-  });
+function loadWeather(lat, lng) {
+	$.ajax({
+	  dataType: "json",
+	  url: 'api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lng,
+	  data: data,
+	  success: function(data){
+		  console.log(data);
+	  }
+	});
 }
