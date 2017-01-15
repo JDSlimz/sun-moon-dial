@@ -35,10 +35,6 @@ function showPosition(position) {
 		var startOfDay = new Date(mmtStart).getTime();
 		var endOfDay = new Date(mmtEnd).getTime();
 		
-		console.log("Now: " + now.getTime());
-		console.log("End Of Day: " + endOfDay);
-		console.log("Sunset: " + sunSet.getTime());
-		
 		if( now.getTime() > startOfDay && now.getTime() < sunRise.getTime() ){ //Now is between Midnight and Sunrise.
 			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
 		} else if( now.getTime() < endOfDay && now.getTime() > sunSet.getTime() ){ //Now is between Sunset and 11:59pm
@@ -77,20 +73,31 @@ function moonRotate(rise, set){
 function loadWeather(lat, lng) {
 	//console.log('https://api.wunderground.com/api/6a6a5af963e13dd8/conditions/q/'+lat+','+lng+'.json'); 
 	$.ajax({
-	  dataType: "json",
-	  url: 'https://api.wunderground.com/api/6a6a5af963e13dd8/conditions/q/'+lat+','+lng+'.json',
-	  success: function(data){
-		  console.log(data['current_observation']);
-		  
-		  var temp = data['current_observation']['temp_f'];
-		  var weather = data['current_observation']['weather'];
-		  var locName = data['current_observation']['observation_location']['full'];
-		  
-		  var html = "<h1>" + temp + "&deg;F</h1>";
-		  html += "<h3>" + weather + "</h3>";
-		  html += "<h6>" + locName + "</h6>";
-		  
-		  $('#tw_weather').html(html);
+		dataType: "json",
+		url: 'https://api.wunderground.com/api/6a6a5af963e13dd8/conditions/q/'+lat+','+lng+'.json',
+		success: function(data){
+
+			var temp = data['current_observation']['temp_f'];
+			var weather = data['current_observation']['weather'];
+			var locName = data['current_observation']['observation_location']['full'];
+
+			var html = "<h1>" + temp + "&deg;F</h1>";
+			html += "<h3>" + weather + "</h3>";
+			html += "<h6>" + locName + "</h6>";
+
+			$('#tw_weather').html(html);
+
+			switch(weather){
+				case "Mostly Cloudy":
+					console.log(weather);
+					break;
+				case "Partly Cloudy":
+					console.log(weather);
+					break;
+				default:
+					console.log(weather);
+				
+			}
 	  }
 	});
 }
