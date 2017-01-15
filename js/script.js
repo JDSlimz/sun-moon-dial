@@ -35,9 +35,13 @@ function showPosition(position) {
 		var startOfDay = new Date(mmtStart).getTime();
 		var endOfDay = new Date(mmtEnd).getTime();
 		
+		console.log("Now: " + now.getTime());
+		console.log("End Of Day: " + endOfDay);
+		console.log("Sunset: " + sunSet.getTime());
+		
 		if( now.getTime() > startOfDay && now.getTime() < sunRise.getTime() ){ //Now is between Midnight and Sunrise.
 			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
-		} else if( now.getTime < endOfDay && now.getTime() > sunSet.getTime() ){ //Now is between Sunset and 11:59pm
+		} else if( now.getTime() < endOfDay && now.getTime() > sunSet.getTime() ){ //Now is between Sunset and 11:59pm
 			jQuery('#weather').css("background", "url(images/nightbg.png) no-repeat");
 		} else {
 			jQuery('#weather').css("background", "url(images/daybg.png) no-repeat");
